@@ -21,10 +21,10 @@ enable_testing()
 include(GoogleTest)
 
 add_executable(
-  tests
+  wim_strutils_tests
   src/strutils.cpp
   src/strutils_test.cpp
 )
 
-link_fuzztest(tests)
-gtest_discover_tests(tests)
+link_fuzztest(wim_strutils_tests)
+gtest_discover_tests(wim_strutils_tests)
