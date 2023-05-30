@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+CC=clang CXX=clang++ cmake \
+        -DCMAKE_BUILD_TYPE=RelWithDebug \
+        -S . \
+        -B build \
+    && cmake \
+        --build build \
+    && ctest \
+        --output-on-failure \
+        --test-dir build/
