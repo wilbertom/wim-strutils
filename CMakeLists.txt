@@ -3,8 +3,6 @@ project(wim-strutils)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(include)
-
 include(FetchContent)
 
 FetchContent_Declare(
@@ -31,5 +29,27 @@ add_executable(
   src/strutils_test.cpp
 )
 
+target_include_directories(${PROJECT_NAME}-tests
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
 link_fuzztest(${PROJECT_NAME}-tests)
 gtest_discover_tests(${PROJECT_NAME}-tests)
+
+
+add_library(${PROJECT_NAME} STATIC)
+target_sources(${PROJECT_NAME}
+    PRIVATE
+      src/strutils.cpp
+)
+target_include_directories(${PROJECT_NAME}
+    PRIVATE
+        # where the library itself will look for its internal headers
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+    PUBLIC
+        # where top-level project will look for the library's public headers
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+)
