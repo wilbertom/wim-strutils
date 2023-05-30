@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(vendor/fuzztest)
 
+include_directories(include)
+
 include(FetchContent)
 
 FetchContent_Declare(
@@ -20,8 +22,8 @@ include(GoogleTest)
 
 add_executable(
   tests
-  src/levenshtein_distance_test.cpp
-  src/levenshtein_distance.cpp
+  src/strutils.cpp
+  src/strutils_test.cpp
 )
 
 link_fuzztest(tests)
