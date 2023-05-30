@@ -3,8 +3,6 @@ project(wim-strutils)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_subdirectory(vendor/fuzztest)
-
 include_directories(include)
 
 include(FetchContent)
@@ -15,6 +13,13 @@ FetchContent_Declare(
 )
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
+
+FetchContent_Declare(
+  fuzztest
+  GIT_REPOSITORY https://github.com/google/fuzztest.git
+  GIT_TAG main
+)
+FetchContent_MakeAvailable(fuzztest)
 
 enable_testing()
 
