@@ -63,3 +63,32 @@ TEST(split, SplittingWithADifferentSeparator) {
 
     EXPECT_EQ(result, expected);
 }
+
+
+TEST(tail, TailOfAString) {
+    std::string s = "hello world";
+    std::string expected = "ello world";
+
+    std::string result = tail(s);
+
+    EXPECT_EQ(result, expected);
+}
+
+
+TEST(tail, TailOfASingleCharacterString) {
+    std::string s = "a";
+    std::string expected = "";
+
+    std::string result = tail(s);
+
+    EXPECT_EQ(result, expected);
+}
+
+TEST(tail, TailOfAnEmptyString) {
+    std::string s = "";
+    std::string expected = "";
+
+    std::string result = tail(s);
+
+    EXPECT_EQ(result, expected);
+}

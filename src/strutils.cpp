@@ -45,3 +45,12 @@ std::vector<std::string> split(std::string s, char separator) {
 std::vector<std::string> split(std::string s) {
     return split(s, ' ');
 }
+
+
+std::string tail(std::string s) {
+    if (s.empty()) {
+        return "";
+    }
+
+    return s.substr(1, s.length());
+}
