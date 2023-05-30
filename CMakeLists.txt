@@ -38,7 +38,6 @@ target_include_directories(${PROJECT_NAME}-tests
 link_fuzztest(${PROJECT_NAME}-tests)
 gtest_discover_tests(${PROJECT_NAME}-tests)
 
-
 add_library(${PROJECT_NAME} STATIC)
 target_sources(${PROJECT_NAME}
     PRIVATE
@@ -54,3 +53,7 @@ target_include_directories(${PROJECT_NAME}
         # where external projects will look for the library's public headers
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
+set(public_headers
+    include/strutils.hpp
+)
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${public_headers}")
