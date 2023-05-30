@@ -57,3 +57,9 @@ set(public_headers
     include/strutils.hpp
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${public_headers}")
+include(GNUInstallDirs)
+install(TARGETS ${PROJECT_NAME}
+    EXPORT "${PROJECT_NAME}Targets"
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME} # include/SomeLibrary
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} # include
+)
