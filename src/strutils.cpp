@@ -1,6 +1,8 @@
 #include <strutils.hpp>
 #include <sstream>
 
+namespace wim::strutils {
+
 std::string join(std::vector<std::string> v, std::string separator) {
     std::ostringstream stream;
 
@@ -53,4 +55,6 @@ std::string tail(std::string s) {
     }
 
     return s.substr(1, s.length());
+}
+
 }

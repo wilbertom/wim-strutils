@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
-#include "strutils.hpp"
+#include <strutils.hpp>
+
+using namespace wim::strutils;
 
 TEST(join, ASimpleStringWithASingleCharacterSeparator) {
     std::vector<std::string> str {"Hello", "world"};
